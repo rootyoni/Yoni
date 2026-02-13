@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title> Bea 💕</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Pa 💕</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<style>
+  /* Styles for the slideshow */
+  .slideshow-container {
+    max-width: 600px;
+    position: relative;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .slideshow-slide {
+    display: none;
+    width: 100%;
+  }
+  .slideshow-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fade 1.5s;
+  }
+  @keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+  }
+</style>
 </head>
 
 <body>
@@ -13,7 +40,7 @@
 
   <!-- START SCREEN -->
   <div id="startScreen">
-    <p class="intro"> Hey Meri💗</p>
+    <p class="intro"> Hey pa 😍 💗</p>
     <button id="startBtn">start ✨</button>
   </div>
 
@@ -28,15 +55,39 @@
 
   <!-- RESULT SCREEN -->
   <div id="resultScreen" class="hidden">
-    <div id="result">እሄ ነው 🖕🖕 valentine 🤣🤣</div>
-    <img id="cat" src="12.gif" alt="cute cat">
+    <div id="result">🥳🥳Of course you said yes 😜 🥰🐼</div>
+    <img id="cat" src="" alt="cute cat">
+    
+    <div class="slideshow-container">
+      <div class="slideshow-slide"><img src="21.jpg" alt="Image 1"></div>
+      <div class="slideshow-slide"><img src="22.jpg" alt="Image 2"></div>
+      <div class="slideshow-slide"><img src="23.jpg" alt="Image 3"></div>
+      <div class="slideshow-slide"><img src="24.jpg" alt="Image 5"></div>
+    </div>
   </div>
 
 </div>
 
-<!-- HEARTBEAT SOUND -->
 <audio id="heartbeat" src="heartbeat.mp3"></audio>
 
 <script src="script.js"></script>
+<script>
+  let slideIndex = 0;
+  function showSlides() {
+    const slides = document.getElementsByClassName("slideshow-slide");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }    
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(showSlides, 3000);
+  }
+
+  document.getElementById('yesBtn').addEventListener('click', function() {
+    showSlides();
+  });
+</script>
+
 </body>
 </html>
