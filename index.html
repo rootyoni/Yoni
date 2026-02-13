@@ -2,34 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Pa 💕</title>
-
+<title> Fana 💕</title>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
 <style>
-  /* Styles for the slideshow */
-  .slideshow-container {
-    max-width: 600px;
-    position: relative;
-    margin: auto;
+  /* Styles for the gallery */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 20px;
+    position: relative; /* For potential overlay or animations */
   }
-  .slideshow-slide {
-    display: none;
-    width: 100%;
-  }
-  .slideshow-slide img {
-    width: 100%;
+  .gallery img {
+    width: 200px; /* Adjust size as needed */
     height: auto;
+    margin: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: fade 1.5s;
+    animation: pulse 2s infinite ease-in-out; /* Gentle pulse for motion effect */
+    transition: transform 0.3s; /* Smooth hover effect */
   }
-  @keyframes fade {
-    from { opacity: 0.4; }
-    to { opacity: 1; }
+  .gallery img:hover {
+    transform: scale(1.1); /* Zoom on hover for extra interaction */
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
   }
 </style>
 </head>
@@ -40,7 +40,7 @@
 
   <!-- START SCREEN -->
   <div id="startScreen">
-    <p class="intro"> Hey pa 😍 💗</p>
+    <p class="intro"> Hey Fana 💗</p>
     <button id="startBtn">start ✨</button>
   </div>
 
@@ -55,39 +55,23 @@
 
   <!-- RESULT SCREEN -->
   <div id="resultScreen" class="hidden">
-    <div id="result">🥳🥳Of course you said yes 😜 🥰🐼</div>
-    <img alt="cute cat">
+    <div id="result">🥳🥳Of course you said yes.🥰🐼</div>
+    <img id="cat" src="rr.jpg" alt="cute cat">
     
-    <div class="slideshow-container">
-      <div class="slideshow-slide"><img src="21.jpg" alt="Image 1"></div>
-      <div class="slideshow-slide"><img src="22.jpg" alt="Image 2"></div>
-      <div class="slideshow-slide"><img src="23.jpg" alt="Image 3"></div>
-      <div class="slideshow-slide"><img src="24.jpg" alt="Image 5"></div>
+    <!-- Gallery with your 5 images, added at the end with motion via CSS animation -->
+    <div class="gallery">
+      <img src="31.jpg" alt="Image 1">
+      <img src="32.jpg" alt="Image 2">
+      <img src="33.jpg" alt="Image 3">
+      <img src="34.jpg" alt="Image 4">
     </div>
   </div>
 
 </div>
 
+<!-- HEARTBEAT SOUND -->
 <audio id="heartbeat" src="heartbeat.mp3"></audio>
 
 <script src="script.js"></script>
-<script>
-  let slideIndex = 0;
-  function showSlides() {
-    const slides = document.getElementsByClassName("slideshow-slide");
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }    
-    slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 3000);
-  }
-
-  document.getElementById('yesBtn').addEventListener('click', function() {
-    showSlides();
-  });
-</script>
-
 </body>
 </html>
